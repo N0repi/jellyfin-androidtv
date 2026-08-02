@@ -3,6 +3,7 @@ package org.jellyfin.androidtv.ui.search.composable
 import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
@@ -28,6 +29,7 @@ import org.jellyfin.androidtv.ui.base.Icon
 import org.jellyfin.androidtv.ui.base.JellyfinTheme
 import org.jellyfin.androidtv.ui.base.LocalTextStyle
 import org.jellyfin.androidtv.ui.base.ProvideTextStyle
+import org.jellyfin.androidtv.ui.base.Text
 
 @Composable
 fun SearchTextInput(
@@ -35,6 +37,7 @@ fun SearchTextInput(
 	onQueryChange: (query: String) -> Unit,
 	onQuerySubmit: () -> Unit,
 	modifier: Modifier = Modifier,
+	placeholder: String? = null,
 ) {
 	val interactionSource = remember { MutableInteractionSource() }
 	val focused by interactionSource.collectIsFocusedAsState()
@@ -77,7 +80,15 @@ fun SearchTextInput(
 				) {
 					Icon(ImageVector.vectorResource(R.drawable.ic_search), contentDescription = null)
 					Spacer(Modifier.width(12.dp))
-					innerTextField()
+					Box(modifier = Modifier.weight(1f)) {
+						if (query.isEmpty() && !placeholder.isNullOrBlank()) {
+							Text(
+								text = placeholder,
+								color = color.second.copy(alpha = 0.55f),
+							)
+						}
+						innerTextField()
+					}
 				}
 			}
 		)

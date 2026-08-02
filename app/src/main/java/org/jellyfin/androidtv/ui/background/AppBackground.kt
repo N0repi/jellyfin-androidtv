@@ -39,8 +39,15 @@ private fun AppThemeBackground() {
 		val drawable = attributes.getDrawable(0)
 		attributes.recycle()
 
-		if (drawable is ColorDrawable) drawable.toBitmap(1, 1).asImageBitmap()
-		else drawable?.toBitmap()?.asImageBitmap()
+		if (drawable is ColorDrawable) {
+			drawable.toBitmap(1, 1).asImageBitmap()
+		} else {
+			val metrics = context.resources.displayMetrics
+			// Cap decode size so large nodpi backgrounds (e.g. 4K art) don't OOM on TV devices.
+			val width = metrics.widthPixels.coerceAtMost(1920).coerceAtLeast(1)
+			val height = metrics.heightPixels.coerceAtMost(1080).coerceAtLeast(1)
+			drawable?.toBitmap(width, height)?.asImageBitmap()
+		}
 	}
 
 	if (themeBackground != null) {

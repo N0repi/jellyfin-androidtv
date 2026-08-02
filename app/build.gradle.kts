@@ -132,6 +132,10 @@ dependencies {
 	implementation(libs.kotlinx.coroutines)
 	implementation(libs.kotlinx.serialization.json)
 
+	// Networking (Sonarr/Radarr/qBittorrent integrations)
+	implementation(libs.okhttp)
+	implementation(libs.androidx.security.crypto)
+
 	// Android(x)
 	implementation(libs.androidx.core)
 	implementation(libs.androidx.activity)

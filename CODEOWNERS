@@ -13,3 +13,7 @@ detekt.yaml @nielsvanvelzen
 
 # Playback code
 /playback/ @nielsvanvelzen
+
+
+# Radarr, Sonarr, qBittorrent integrations
+@N0repi

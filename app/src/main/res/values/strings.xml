@@ -664,4 +664,46 @@
     <string name="hlg">HLG</string>
     <string name="pref_software_codecs_enabled">Use software codecs</string>
     <string name="pref_software_codecs_enabled_description">Some software-based implementations may degrade performance. Disabling this option makes transcoding more likely.</string>
+    <string name="pref_integrations">Media integrations</string>
+    <string name="pref_integrations_description">Connect Sonarr, Radarr, and qBittorrent on your local network.</string>
+    <string name="pref_sonarr" translatable="false">Sonarr</string>
+    <string name="pref_sonarr_description">Search for and monitor TV series.</string>
+    <string name="pref_radarr" translatable="false">Radarr</string>
+    <string name="pref_radarr_description">Search for and monitor movies.</string>
+    <string name="pref_qbittorrent" translatable="false">qBittorrent</string>
+    <string name="pref_qbittorrent_description">Show active torrent transfers.</string>
+    <string name="pref_host">Host or IP address</string>
+    <string name="pref_port">Port</string>
+    <string name="pref_api_key">API key</string>
+    <string name="pref_username">Username</string>
+    <string name="pref_password">Password</string>
+    <string name="pref_connection_test">Test connection</string>
+    <string name="pref_connection_testing">Testing connection…</string>
+    <string name="lbl_discover">Discover</string>
+    <string name="lbl_torrents">Downloads</string>
+    <string name="discover_searching">Searching…</string>
+    <string name="discover_search_placeholder">Search content</string>
+    <string name="discover_request">Request</string>
+    <string name="discover_requesting">Requesting…</string>
+    <string name="discover_requested">Requested</string>
+    <string name="discover_request_failed">Failed — try again</string>
+    <string name="discover_already_added">Already added</string>
+    <string name="discover_monitor_overline">Monitor</string>
+    <string name="discover_monitor_description">Choose what Sonarr should monitor for this series.</string>
+    <string name="discover_monitor_all">All episodes</string>
+    <string name="discover_monitor_future">Future episodes only</string>
+    <string name="discover_monitor_first_season">First season</string>
+    <string name="discover_monitor_last_season">Last season</string>
+    <string name="discover_monitor_pilot">Pilot</string>
+    <string name="discover_monitor_none">None</string>
+    <string name="discover_monitor_custom_seasons">Select seasons…</string>
+    <string name="discover_monitor_confirm">Monitor selected seasons</string>
+    <string name="discover_season_specials">Specials</string>
+    <string name="discover_season_number">Season %1$d</string>
+    <string name="discover_season_episodes">%1$d episodes</string>
+    <string name="discover_season_count">%1$d seasons</string>
+    <string name="torrents_empty">No active downloads</string>
+    <string name="torrents_progress">%1$d%% · ↓ %2$s · ↑ %3$s · ETA %4$s</string>
+    <string name="torrents_stop">Stop</string>
+    <string name="torrents_remove">Remove</string>
 </resources>

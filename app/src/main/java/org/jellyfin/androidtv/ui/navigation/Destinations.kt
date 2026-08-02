@@ -11,6 +11,7 @@ import org.jellyfin.androidtv.ui.browsing.ByLetterFragment
 import org.jellyfin.androidtv.ui.browsing.CollectionFragment
 import org.jellyfin.androidtv.ui.browsing.GenericFolderFragment
 import org.jellyfin.androidtv.ui.browsing.SuggestedMoviesFragment
+import org.jellyfin.androidtv.ui.discover.DiscoverFragment
 import org.jellyfin.androidtv.ui.home.HomeFragment
 import org.jellyfin.androidtv.ui.itemdetail.FullDetailsFragment
 import org.jellyfin.androidtv.ui.itemdetail.ItemListFragment
@@ -23,6 +24,7 @@ import org.jellyfin.androidtv.ui.playback.stillwatching.StillWatchingFragment
 import org.jellyfin.androidtv.ui.player.photo.PhotoPlayerFragment
 import org.jellyfin.androidtv.ui.player.video.VideoPlayerFragment
 import org.jellyfin.androidtv.ui.search.SearchFragment
+import org.jellyfin.androidtv.ui.torrents.TorrentActivityFragment
 import org.jellyfin.sdk.model.api.BaseItemDto
 import org.jellyfin.sdk.model.api.ItemSortBy
 import org.jellyfin.sdk.model.api.SeriesTimerInfoDto
@@ -36,6 +38,8 @@ object Destinations {
 	fun search(query: String? = null) = fragmentDestination<SearchFragment> {
 		putString(SearchFragment.EXTRA_QUERY, query)
 	}
+	val discover = fragmentDestination<DiscoverFragment>()
+	val torrents = fragmentDestination<TorrentActivityFragment>()
 
 	// Browsing
 	// TODO only pass item id instead of complete JSON to browsing destinations

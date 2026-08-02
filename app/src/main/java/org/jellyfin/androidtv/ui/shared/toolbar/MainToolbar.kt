@@ -24,6 +24,7 @@ import kotlinx.coroutines.flow.filterNotNull
 import org.jellyfin.androidtv.R
 import org.jellyfin.androidtv.auth.repository.SessionRepository
 import org.jellyfin.androidtv.auth.repository.UserRepository
+import org.jellyfin.androidtv.preference.IntegrationPreferences
 import org.jellyfin.androidtv.ui.NowPlayingComposable
 import org.jellyfin.androidtv.ui.base.Icon
 import org.jellyfin.androidtv.ui.base.JellyfinTheme
@@ -49,6 +50,8 @@ enum class MainToolbarActiveButton {
 	User,
 	Home,
 	Search,
+	Discover,
+	Torrents,
 
 	None,
 }
@@ -151,6 +154,39 @@ private fun MainToolbar(
 						colors = if (activeButton == MainToolbarActiveButton.Search) activeButtonColors else ButtonDefaults.colors(),
 						content = { Text(stringResource(R.string.lbl_search)) }
 					)
+					val integrationPreferences = koinInject<IntegrationPreferences>()
+					val discoverEnabled = remember {
+						(integrationPreferences[IntegrationPreferences.sonarrEnabled] &&
+							integrationPreferences[IntegrationPreferences.sonarrHost].isNotBlank()) ||
+							(integrationPreferences[IntegrationPreferences.radarrEnabled] &&
+								integrationPreferences[IntegrationPreferences.radarrHost].isNotBlank())
+					}
+					val torrentsEnabled = remember {
+						integrationPreferences[IntegrationPreferences.qbittorrentEnabled] &&
+							integrationPreferences[IntegrationPreferences.qbittorrentHost].isNotBlank()
+					}
+					if (discoverEnabled) {
+						Button(
+							onClick = {
+								if (activeButton != MainToolbarActiveButton.Discover) {
+									navigationRepository.navigate(Destinations.discover, replace = true)
+								}
+							},
+							colors = if (activeButton == MainToolbarActiveButton.Discover) activeButtonColors else ButtonDefaults.colors(),
+							content = { Text(stringResource(R.string.lbl_discover)) }
+						)
+					}
+					if (torrentsEnabled) {
+						Button(
+							onClick = {
+								if (activeButton != MainToolbarActiveButton.Torrents) {
+									navigationRepository.navigate(Destinations.torrents, replace = true)
+								}
+							},
+							colors = if (activeButton == MainToolbarActiveButton.Torrents) activeButtonColors else ButtonDefaults.colors(),
+							content = { Text(stringResource(R.string.lbl_torrents)) }
+						)
+					}
 				}
 			}
 		},

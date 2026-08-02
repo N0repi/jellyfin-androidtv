@@ -7,3 +7,9 @@ local.properties
 .kotlin/
 build/
 captures/
+
+notes
+.env
+
+/images
+/images_edited

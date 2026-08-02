@@ -15,6 +15,7 @@ class KoinInitializer : Initializer<KoinApplication> {
 			androidModule,
 			appModule,
 			authModule,
+			integrationModule,
 			playbackModule,
 			preferenceModule,
 			utilsModule,

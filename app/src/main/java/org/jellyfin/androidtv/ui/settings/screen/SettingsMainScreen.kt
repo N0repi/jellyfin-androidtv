@@ -60,6 +60,14 @@ fun SettingsMainScreen() {
 
 		item {
 			ListButton(
+				leadingContent = { Icon(painterResource(R.drawable.ic_settings), contentDescription = null) },
+				headingContent = { Text(stringResource(R.string.pref_integrations)) },
+				onClick = { router.push(Routes.INTEGRATIONS) }
+			)
+		}
+
+		item {
+			ListButton(
 				leadingContent = { Icon(painterResource(R.drawable.ic_error), contentDescription = null) },
 				headingContent = { Text(stringResource(R.string.pref_telemetry_category)) },
 				onClick = { router.push(Routes.TELEMETRY) }

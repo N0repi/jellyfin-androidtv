@@ -1,3 +1,25 @@
+A version of the Jellyfin client for android tv with added support for Sonarr, Radarr, and qBittorrent. This enables users to manage their torrenting pipeline in-app.
+
+One of my biggest gripes with self-hosting streaming apps is having to add media from a PC. This is remedied by now being able to use the **Discover** tab to search for movies and, or TV shows. **Discover** acts as an aggregate of Sonarr and Radarr, combining the index results of both programs. Full features- allows you monitor specific episodes and seasons, etc.
+
+Newly added media will appear in the **Downloads** tab. Downloading media can be stopped.
+
+
+**Setting up this pipeline***
+
+*You must have existing servers running one of the following to use this pipeline: Sonarr, Radarr, qBittorrent*
+
+1. Open up settings in your Jellyfin app 🠮 Media integrations
+
+2. Enter your IP address, port number, and API key for Sonarr and Radarr. Default ports are 8989 for Sonarr 7878 for Radarr.
+
+3. Enter your IP, port number, username, and password for qBittorrent
+
+Easy peasy.
+
+
+Original README below
+
 <h1 align="center">Jellyfin for Android TV</h1>
 <h3 align="center">Part of the <a href="https://jellyfin.org">Jellyfin Project</a></h3>
 
